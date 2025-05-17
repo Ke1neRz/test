@@ -17,15 +17,22 @@ Docker comands:
 
     docker buildx build --platform linux/amd64 -t ke1ner/goods_api:latest --push .
 
+Docker comands for deploy with github:
+    docker compose up --build
+
 Git-Hub:
     git init
     git add .
     git commit -m "first commit"
-    git branch -M main
-    git remote add origin git@github.com:Ke1neRz/Goods-API.git
-    git fetch origin main
-    git merge origin main
+    git branch -M main  // не нужно если при утановке git указывали main
+    git remote add origin https://github.com/Ke1neRz/test.git
     git push -u origin main
+
+    для измененмя ошибок:
+        git commit -m "fix: "
+        git push
+        и на сервере (ssh):
+            git pull
 
 Создание и активация окружения:
     python -m venv venv         # Создаём виртуальное окружение
@@ -59,3 +66,12 @@ Git-Hub:
     pip show <package>           # Инфо о библиотеке
     pip check                    # Поиск конфликтов версий
     pip cache purge              # Очистка кэша pip
+
+ssh:
+    sudo apt update
+    sudo apt-get install git
+    git clone https://github.com/Ke1neRz/test.git
+
+    cd /root/test/  # Переходим в директорию с проектом
+    touch .env      # Создаем пустой файл .env
+    nano .env       # Откройте файл для редактирования
