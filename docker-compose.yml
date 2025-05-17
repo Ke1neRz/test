@@ -1,19 +1,4 @@
-networks:
-  dev:
-
 services:
-  nginx:
-    image: nginx:stable-alpine
-    ports:
-      - "80:80"
-    volumes:
-      - './nginx.conf:/etc/nginx/nginx.conf'
-    depends_on:
-      - api
-      - db
-    networks:
-      - dev
-
   api:
     build:
       context: .
@@ -28,8 +13,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      - dev
     restart: always
 
   db:
@@ -50,8 +33,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-    networks:
-      - dev
 
 volumes:
   postgres_data:
