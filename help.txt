@@ -1,0 +1,61 @@
+Docker comands:
+    docker build -t goods-api:latest .   # сборка образа (выполняет код из Dockerfile)
+    docker images                        # проверка образа
+    docker run -p 8000:8000 --add-host=host.docker.internal:host-gateway -env-file .env goods-api:latest    # запуск контейнера (1 порт - хоста, 2 порт - контейнера)
+    docker-compose up --build            # запуск контейнеров
+    docker ps                            # отображает список активных контейнеров в системе
+
+    git add .
+    git commit -m "add-db-section"
+    git push
+    git pull
+
+    docker build -t ke1ner/goods_api:latest .
+    docker push ke1ner/goods_api:latest
+    docker pull ke1ner/goods_api:latest
+    docker-compose up -d
+
+    docker buildx build --platform linux/amd64 -t ke1ner/goods_api:latest --push .
+
+Git-Hub:
+    git init
+    git add .
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin git@github.com:Ke1neRz/Goods-API.git
+    git fetch origin main
+    git merge origin main
+    git push -u origin main
+
+Создание и активация окружения:
+    python -m venv venv         # Создаём виртуальное окружение
+    venv\Scripts\activate        # Активация на Windows
+
+
+Выключение и удаление:
+    deactivate                   # Отключение окружения
+    rmdir /s myenv               # Удаление на Windows
+
+
+Работа с зависимостями:
+    pip install <package>        # Установка библиотеки
+    pip install -U <package>     # Обновление
+    pip uninstall <package> -y   # Удаление
+    
+    pip freeze                      # Список зависимостей
+    pip freeze > requirements.txt   # Сохраняем в файл
+    pip install -r requirements.txt # Установка из файла
+
+    pip install poetry       # Установка библиотеки
+    poetry install           # Для первичной установки
+    poetry update            # Для обновления
+    poetry show              # Просмотр зависимостей
+    poetry new new_project   # Чтобы создать новый проект с помощью Poetry, достаточно выполнить poetry new <название папки с проектом>. После чего создастся папка с названием вашего проекта, в этой папке будет лежать файл pyproject.toml.
+    poetry init              # Чтобы сделать пакетным менеджером poetry в уже имеющемся проекте, достаточно выполнить:
+
+
+Полезные команды pip:
+    pip list                     # Список установленных библиотек
+    pip show <package>           # Инфо о библиотеке
+    pip check                    # Поиск конфликтов версий
+    pip cache purge              # Очистка кэша pip
