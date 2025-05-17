@@ -29,6 +29,7 @@ Git-Hub:
     git push -u origin main
 
     для измененмя ошибок:
+        git add .
         git commit -m "fix: "
         git push
         и на сервере (ssh):
